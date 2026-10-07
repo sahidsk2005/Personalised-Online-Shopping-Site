@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Jasmin's Vanity Vault • Curated Beauty & PR Archives</title>
+    <!-- Google Fonts for Apple-like refined typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ----------------------------------------------------
+       CORE & LIGHT PINK GLASSMORPHISM DESIGN SYSTEM
+    ---------------------------------------------------- */
+        :root {
+            --bg-base: #fef4f7;
+            --pink-glass-bg: rgba(255, 255, 255, 0.52);
+            --pink-glass-card: rgba(255, 245, 248, 0.65);
+            --pink-glass-elevated: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-border-subtle: rgba(244, 114, 182, 0.2);
+            --glass-shadow: 0 12px 36px -8px rgba(225, 29, 105, 0.12);
+            --glass-shadow-sm: 0 4px 20px -2px rgba(244, 63, 94, 0.08);
+            --glass-blur: blur(28px);
+
+            --accent-rose: #f43f5e;
+            --accent-blush: #fb7185;
+            --accent-pink-soft: #ffe4ec;
+            --accent-gold: #d97706;
+            --insta-pink: #e1306c;
+            --insta-gradient: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --amazon-color: #ff9900;
+            --text-main: #271d24;
+            --text-muted: #786470;
+            --text-soft: #a894a0;
+
+            --radius-pill: 9999px;
+            --radius-ios: 26px;
+            --radius-card: 22px;
+            --radius-sm: 14px;
+            --spring: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 110px;
+            /* Space for iPhone bottom dock */
+        }
+
+        /* Ambient Dreamy Floating Pink Mesh Backdrop */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.65;
+            animation: floatOrb 18s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 460px;
+            height: 460px;
+            top: -120px;
+            right: -80px;
+            background: radial-gradient(circle, #fecdd3 0%, #ffe4e6 70%, transparent 100%);
+        }
+
+        .orb-2 {
+            width: 520px;
+            height: 520px;
+            bottom: 80px;
+            left: -140px;
+            background: radial-gradient(circle, #fbcfe8 0%, #fce7f3 70%, transparent 100%);
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 380px;
+            height: 380px;
+            top: 40%;
+            left: 30%;
+            background: radial-gradient(circle, #fed7aa 0%, #ffe4e6 60%, transparent 100%);
+            opacity: 0.35;
+            animation-delay: -9s;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(35px) scale(1.08);
+            }
+
+            100% {
+                transform: translateY(-25px) scale(0.96);
+            }
+        }
+
+        /* ----------------------------------------------------
+       IPHONE DYNAMIC STATUS & HEADER
+    ---------------------------------------------------- */
+        .ios-island-wrapper {
+            position: sticky;
+            top: 14px;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px;
+        }
+
+        .ios-dynamic-island {
+            background: rgba(30, 20, 26, 0.88);
+            backdrop-filter: blur(24px);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 13px;
+            letter-spacing: -0.2px;
+            transition: all 0.35s var(--spring);
+        }
+
+        .island-badge {
+            background: var(--insta-gradient);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(225, 48, 108, 0.8);
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+
+        .island-link {
+            color: #ffd6e4;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ----------------------------------------------------
+       HERO PROFILE CARD
+    ---------------------------------------------------- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 18px;
+        }
+
+        .glass-card {
+            background: var(--pink-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-ios);
+            box-shadow: var(--glass-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-profile {
+            padding: 28px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-profile::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            background: linear-gradient(180deg, rgba(255, 228, 236, 0.7) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            margin-bottom: 14px;
+            z-index: 1;
+        }
+
+        .avatar-img {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.25);
+            background: #ffe4ec;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .creator-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .creator-handle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-rose);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .creator-handle:hover {
+            background: #fff;
+            transform: translateY(-1px);
+            box-shadow: var(--glass-shadow-sm);
+        }
+
+        .creator-tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-sm);
+            padding: 10px 8px;
+            text-align: center;
+        }
+
+        .stat-val {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-rose);
+            display: block;
+        }
+
+        .stat-lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* ----------------------------------------------------
+       MODE SWITCHER / TABS (STOREFRONT vs SKIN GUIDE)
+    ---------------------------------------------------- */
+        .ios-segmented-control {
+            background: rgba(245, 226, 233, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-pill);
+            padding: 5px;
+            display: flex;
+            gap: 6px;
+            margin-bottom: 22px;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .segment-btn {
+            flex: 1;
+            padding: 10px 14px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13.5px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.25s var(--spring);
+        }
+
+        .segment-btn.active {
+            background: #ffffff;
+            color: var(--accent-rose);
+            box-shadow: 0 4px 14px rgba(244, 63, 94, 0.15);
+            font-weight: 700;
+        }
+
+        /* ----------------------------------------------------
+       SECTION: SKIN DIAGNOSTIC & ROUTINE GUIDE
+    ---------------------------------------------------- */
+        .skin-guide-section {
+            display: none;
+            /* toggled via JS */
+            animation: fadeIn 0.3s ease;
+        }
+
+        .skin-guide-card {
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .skin-selector-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .skin-selector-subtitle {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .skin-type-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .skin-chip {
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--text-main);
+            padding: 9px 18px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skin-chip.active {
+            background: var(--accent-rose);
+            color: #ffffff;
+            border-color: var(--accent-rose);
+            box-shadow: 0 6px 18px rgba(244, 63, 94, 0.3);
+        }
+
+        .routine-box {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 20px;
+        }
+
+        .routine-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .routine-badge {
+            background: #ffe4ec;
+            color: var(--accent-rose);
+            font-weight: 700;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .routine-steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .routine-steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .routine-col {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .routine-col-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .routine-list {
+            list-style: none;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .routine-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .routine-list li::before {
+            content: "•";
+            color: var(--accent-blush);
+            font-weight: bold;
+        }
+
+        .filter-match-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%);
+            color: #fff;
+            border: none;
+            padding: 13px;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.28);
+            transition: all 0.2s ease;
+        }
+
+        .filter-match-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(244, 63, 94, 0.35);
+        }
+
+        /* ----------------------------------------------------
+       STOREFRONT: SEARCH & CHIP FILTERS
+    ---------------------------------------------------- */
+        .storefront-section {
+            animation: fadeIn 0.3s ease;
+        }
+
+        .search-filter-card {
+            padding: 18px 20px;
+            margin-bottom: 22px;
+        }
+
+        .search-bar-wrapper {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-pill);
+            padding: 13px 20px 13px 44px;
+            font-size: 14px;
+            color: var(--text-main);
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blush);
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(244, 63, 94, 0.12);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-soft);
+            pointer-events: none;
+        }
+
+        .filter-groups {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-scroll-row {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none;
+        }
+
+        .filter-scroll-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tag-chip {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-pill);
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tag-chip:hover {
+            background: #fff;
+        }
+
+        .tag-chip.active {
+            background: var(--text-main);
+            color: #fff;
+            border-color: var(--text-main);
+        }
+
+        .tag-chip.pr-chip.active {
+            background: var(--insta-gradient);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .tag-chip.aff-chip.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* ----------------------------------------------------
+       PRODUCT CARDS GRID
+    ---------------------------------------------------- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--pink-glass-card);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--glass-shadow-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s var(--spring);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--glass-shadow);
+            border-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .product-thumb-container {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            background: linear-gradient(180deg, #ffeef3 0%, #ffe4ec 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--spring);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.04);
+        }
+
+        .product-badge-float {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .badge-pr {
+            background: rgba(225, 48, 108, 0.9);
+            color: #fff;
+        }
+
+        .badge-new {
+            background: rgba(16, 185, 129, 0.9);
+            color: #fff;
+        }
+
+        .badge-discount {
+            background: rgba(244, 63, 94, 0.95);
+            color: #fff;
+        }
+
+        .skin-tag-float {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--text-main);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: var(--radius-pill);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .product-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-brand {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent-blush);
+            margin-bottom: 3px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .jasmin-note-pill {
+            background: rgba(255, 228, 236, 0.7);
+            border: 1px dashed rgba(244, 63, 94, 0.35);
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            font-size: 11.5px;
+            color: #9f1239;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-style: italic;
+        }
+
+        .jasmin-note-pill span {
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 14px;
+            margin-top: auto;
+        }
+
+        .sale-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-rose);
+            letter-spacing: -0.3px;
+        }
+
+        .orig-price {
+            font-size: 13.5px;
+            color: var(--text-soft);
+            text-decoration: line-through;
+        }
+
+        .savings-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 2px 7px;
+            border-radius: var(--radius-pill);
+            margin-left: auto;
+        }
+
+        /* ACTION BUTTONS (INSTAGRAM vs AFFILIATE) */
+        .btn-buy-action {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.25s var(--spring);
+        }
+
+        /* For Second-Hand PR Items */
+        .btn-insta-buy {
+            background: var(--insta-gradient);
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .btn-insta-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(225, 48, 108, 0.42);
+        }
+
+        /* For Brand New Affiliate Items */
+        .btn-affiliate-buy {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .btn-affiliate-buy:hover {
+            background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ----------------------------------------------------
+       ADMIN STUDIO SECTION
+    ---------------------------------------------------- */
+        .admin-section {
+            display: none;
+            /* toggled via JS */
+            animation: fadeIn 0.3s ease;
+        }
+
+        .admin-grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 820px) {
+            .admin-grid-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .admin-card {
+            padding: 24px;
+        }
+
+        .admin-section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 22px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-section-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-sm);
+            padding: 11px 14px;
+            font-size: 13.5px;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            background: #fff;
+            border-color: var(--accent-blush);
+            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Product Type Radio Pill Selector */
+        .radio-type-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: rgba(245, 226, 233, 0.6);
+            padding: 5px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+        }
+
+        .radio-pill-label {
+            padding: 9px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        input[type="radio"]:checked+.radio-pill-label {
+            background: #fff;
+            color: var(--accent-rose);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .radio-type-toggle input {
+            display: none;
+        }
+
+        /* Quick Image Presets */
+        .image-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .preset-pill {
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .preset-pill:hover {
+            background: #fff;
+            color: var(--accent-rose);
+        }
+
+        .btn-submit-product {
+            width: 100%;
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(225, 29, 72, 0.35);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn-submit-product:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(225, 29, 72, 0.45);
+        }
+
+        /* Admin Inventory Table / Items */
+        .admin-inventory-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 580px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .admin-inventory-list::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .admin-inventory-list::-webkit-scrollbar-thumb {
+            background: rgba(244, 63, 94, 0.2);
+            border-radius: 10px;
+        }
+
+        .admin-item-row {
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-item-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #ffe4ec;
+        }
+
+        .admin-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .admin-item-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--text-main);
+        }
+
+        .admin-item-meta {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .admin-item-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-action-icon {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-icon:hover {
+            background: #fff;
+            color: var(--accent-rose);
+            transform: scale(1.08);
+        }
+
+        .btn-action-icon.btn-delete:hover {
+            color: #ef4444;
+        }
+
+        /* ----------------------------------------------------
+       IPHONE FLOATING GLASS BOTTOM DOCK
+    ---------------------------------------------------- */
+        .ios-dock-wrapper {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px;
+            pointer-events: none;
+        }
+
+        .ios-dock {
+            pointer-events: auto;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-pill);
+            padding: 8px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 16px 36px -4px rgba(225, 29, 105, 0.18), 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .dock-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s var(--spring);
+        }
+
+        .dock-item svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.2;
+        }
+
+        .dock-item.active {
+            background: rgba(244, 63, 94, 0.12);
+            color: var(--accent-rose);
+            font-weight: 700;
+        }
+
+        .dock-item:active {
+            transform: scale(0.92);
+        }
+
+        /* ----------------------------------------------------
+       TOAST ALERTS & MODALS
+    ---------------------------------------------------- */
+        .toast-container {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toast {
+            background: rgba(30, 20, 26, 0.92);
+            backdrop-filter: blur(20px);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideDown 0.35s var(--spring);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 20px;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+
+        .empty-state svg {
+            margin-bottom: 12px;
+            color: var(--accent-blush);
+            opacity: 0.7;
+        }
+
+        /* Modal Backdrop */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(39, 29, 36, 0.4);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(255, 250, 252, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-ios);
+            width: 100%;
+            max-width: 440px;
+            padding: 24px;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+            animation: zoomIn 0.25s var(--spring);
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.92);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .auth-error {
+            color: #be123c;
+            font-size: 12px;
+            min-height: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Ambient Glow Orbs -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- iPhone Style Dynamic Island Status Header -->
+    <div class="ios-island-wrapper">
+        <div class="ios-dynamic-island">
+            <span class="island-badge"></span>
+            <span>Jasmin’s PR Vault & Beauty Studio</span>
+            <span style="opacity: 0.4;">•</span>
+            <a href="https://instagram.com/arzuu_jasmin" target="_blank" rel="noopener" class="island-link">
+                @arzuu_jasmin
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17l9.2-9.2M17 17V8H8" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- HERO PROFILE CARD -->
+        <header class="glass-card hero-profile">
+            <div class="avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+                    alt="Jasmin" class="avatar-img">
+                <div class="verified-badge" title="Verified Creator">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                </div>
+            </div>
+            <h1 class="creator-name">Jasmin's Beauty Vault</h1>
+            <a href="https://instagram.com/arzuu_jasmin" target="_blank" rel="noopener" class="creator-handle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                @arzuu_jasmin
+            </a>
+            <p class="creator-tagline">
+                Welcome to my personal vanity archive! Shop heavily discounted PR gifts & pre-loved beauty samples
+                directly through my Instagram DM, or explore my top-rated authentic recommendations with verified
+                affiliate links.
+            </p>
+
+            <div class="hero-stats-row">
+                <div class="stat-pill">
+                    <span class="stat-val" id="stat-total-items">0</span>
+                    <span class="stat-lbl">Vault Items</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-val" id="stat-pr-items">0</span>
+                    <span class="stat-lbl">PR Pre-Loved</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-val" id="stat-max-discount">60%</span>
+                    <span class="stat-lbl">Max Savings</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- TOP NAVIGATION SEGMENTED CONTROL -->
+        <div class="ios-segmented-control">
+            <button class="segment-btn active" id="tab-btn-shop" onclick="switchMainTab('shop')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Curated Vault
+            </button>
+            <button class="segment-btn" id="tab-btn-routine" onclick="switchMainTab('routine')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                Skin Type & Routine Guide
+            </button>
+            <button class="segment-btn" id="tab-btn-admin" onclick="switchMainTab('admin')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+                Admin Studio
+            </button>
+        </div>
+
+        <!-- ====================================================
+         SECTION 1: USER STOREFRONT & PRODUCT VAULT
+    ==================================================== -->
+        <main id="section-shop" class="storefront-section">
+            <!-- Search & Filters Glass Card -->
+            <div class="glass-card search-filter-card">
+                <div class="search-bar-wrapper">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="Search by brand, product, or concern (e.g., Niacinamide, Glow, PR)..."
+                        oninput="applyFilters()">
+                </div>
+
+                <div class="filter-groups">
+                    <!-- Source/Type Filter Row -->
+                    <div class="filter-scroll-row">
+                        <span class="tag-chip active" data-filter-type="source" data-val="all"
+                            onclick="setChipFilter(this)">All Listings</span>
+                        <span class="tag-chip pr-chip" data-filter-type="source" data-val="secondhand"
+                            onclick="setChipFilter(this)">
+                            🛍️ Pre-Loved PR Gifts (Claim on IG)
+                        </span>
+                        <span class="tag-chip aff-chip" data-filter-type="source" data-val="affiliate"
+                            onclick="setChipFilter(this)">
+                            ✨ Brand New / Affiliate
+                        </span>
+                    </div>
+
+                    <!-- Category Filter Row -->
+                    <div class="filter-scroll-row">
+                        <span class="tag-chip active" data-filter-type="category" data-val="all"
+                            onclick="setChipFilter(this)">All Categories</span>
+                        <span class="tag-chip" data-filter-type="category" data-val="Skincare"
+                            onclick="setChipFilter(this)">Skincare</span>
+                        <span class="tag-chip" data-filter-type="category" data-val="Makeup"
+                            onclick="setChipFilter(this)">Makeup</span>
+                        <span class="tag-chip" data-filter-type="category" data-val="Haircare"
+                            onclick="setChipFilter(this)">Haircare</span>
+                        <span class="tag-chip" data-filter-type="category" data-val="Fragrance"
+                            onclick="setChipFilter(this)">Fragrance</span>
+                    </div>
+
+                    <!-- Skin Type Filter Row -->
+                    <div class="filter-scroll-row">
+                        <span class="tag-chip active" data-filter-type="skin" data-val="all"
+                            onclick="setChipFilter(this)">All Skin Types</span>
+                        <span class="tag-chip" data-filter-type="skin" data-val="Oily"
+                            onclick="setChipFilter(this)">Oily / Acne</span>
+                        <span class="tag-chip" data-filter-type="skin" data-val="Dry" onclick="setChipFilter(this)">Dry
+                            / Flaky</span>
+                        <span class="tag-chip" data-filter-type="skin" data-val="Combination"
+                            onclick="setChipFilter(this)">Combination</span>
+                        <span class="tag-chip" data-filter-type="skin" data-val="Sensitive"
+                            onclick="setChipFilter(this)">Sensitive</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="products-grid">
+                <!-- Rendered dynamically via JS -->
+            </div>
+        </main>
+
+        <!-- ====================================================
+         SECTION 2: SKIN DIAGNOSTIC & ROUTINE GUIDE
+    ==================================================== -->
+        <section id="section-routine" class="skin-guide-section">
+            <div class="glass-card skin-guide-card">
+                <h2 class="skin-selector-title">Jasmin’s Skin Diagnostic & Rituals</h2>
+                <p class="skin-selector-subtitle">
+                    Select your skin type below to discover the exact morning and evening steps Jasmin recommends,
+                    followed by the best products in her vault matched to your skin barrier!
+                </p>
+
+                <!-- Skin Type Selector Chips -->
+                <div class="skin-type-chips">
+                    <button class="skin-chip active" onclick="selectSkinType('Oily')">✨ Oily & Shine Prone</button>
+                    <button class="skin-chip" onclick="selectSkinType('Dry')">💧 Dry & Dehydrated</button>
+                    <button class="skin-chip" onclick="selectSkinType('Combination')">⚖️ Combination T-Zone</button>
+                    <button class="skin-chip" onclick="selectSkinType('Sensitive')">🌸 Sensitive & Reactive</button>
+                    <button class="skin-chip" onclick="selectSkinType('Acne-Prone')">🌿 Acne-Prone / Blemish</button>
+                </div>
+
+                <!-- Routine Box Display -->
+                <div class="routine-box" id="routineContent">
+                    <!-- Dynamically populated via selectSkinType() -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================
+         SECTION 3: ADMIN STUDIO (FOR JASMIN)
+    ==================================================== -->
+        <section id="section-admin" class="admin-section">
+            <div class="admin-grid-layout">
+                <!-- Add / Edit Product Form -->
+                <div class="glass-card admin-card">
+                    <h2 class="admin-section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span id="form-heading">Upload New Product</span>
+                    </h2>
+                    <p class="admin-section-subtitle">
+                        Add new brand PR packages, pre-loved samples to sell, or affiliate recommendation links.
+                    </p>
+
+                    <form id="productForm" onsubmit="handleProductSubmit(event)">
+                        <input type="hidden" id="editProductId" value="">
+
+                        <!-- Product Channel Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Product Channel / Type</label>
+                            <div class="radio-type-toggle">
+                                <label>
+                                    <input type="radio" name="productType" value="secondhand" checked
+                                        onchange="toggleAdminLinkField()">
+                                    <div class="radio-pill-label">📦 Pre-Loved PR (Sell via IG)</div>
+                                </label>
+                                <label>
+                                    <input type="radio" name="productType" value="affiliate"
+                                        onchange="toggleAdminLinkField()">
+                                    <div class="radio-pill-label">🛒 Brand New (Affiliate)</div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="prodTitle">Product Name *</label>
+                                <input type="text" id="prodTitle" class="form-control"
+                                    placeholder="e.g. Niacinamide 10% + Zinc 1%" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="prodBrand">Brand *</label>
+                                <input type="text" id="prodBrand" class="form-control"
+                                    placeholder="e.g. The Ordinary, Rare Beauty" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="prodCategory">Category</label>
+                                <select id="prodCategory" class="form-control">
+                                    <option value="Skincare">Skincare</option>
+                                    <option value="Makeup">Makeup</option>
+                                    <option value="Haircare">Haircare</option>
+                                    <option value="Fragrance">Fragrance</option>
+                                    <option value="Body">Body Care</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="prodSkinType">Best for Skin Type</label>
+                                <select id="prodSkinType" class="form-control">
+                                    <option value="All">All Skin Types</option>
+                                    <option value="Oily">Oily / Acne-Prone</option>
+                                    <option value="Dry">Dry / Dehydrated</option>
+                                    <option value="Combination">Combination</option>
+                                    <option value="Sensitive">Sensitive</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Condition Note for Second-Hand items -->
+                        <div class="form-group" id="conditionFieldGroup">
+                            <label class="form-label" for="prodCondition">PR Sample Condition Note</label>
+                            <input type="text" id="prodCondition" class="form-control"
+                                placeholder="e.g. Brand New in PR Box, Swatched 1x for review, 95% Left">
+                        </div>
+
+                        <!-- Prices & Discount -->
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="prodOrigPrice">Original MRP Price (₹)</label>
+                                <input type="number" id="prodOrigPrice" class="form-control" placeholder="e.g. 1500"
+                                    required oninput="calculateDiscountPreview()">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="prodSalePrice">Your Selling / Deal Price (₹)</label>
+                                <input type="number" id="prodSalePrice" class="form-control" placeholder="e.g. 699"
+                                    required oninput="calculateDiscountPreview()">
+                            </div>
+                        </div>
+
+                        <div id="discountPreviewNotice"
+                            style="font-size:12px; font-weight:700; color:var(--accent-rose); margin-bottom:12px; display:none;">
+                        </div>
+
+                        <!-- Affiliate Destination Link (Enabled when Brand New) -->
+                        <div class="form-group" id="affiliateLinkGroup" style="display:none;">
+                            <label class="form-label" for="prodAffLink">Affiliate Destination Link (Amazon / Flipkart /
+                                Nykaa)</label>
+                            <input type="url" id="prodAffLink" class="form-control"
+                                placeholder="https://amzn.to/... or https://fkrt.co/...">
+                            <small style="color:var(--text-muted); font-size:11px;">Buyers clicking 'Buy Now' will open
+                                this tracked link.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="prodDesc">Product Description</label>
+                            <textarea id="prodDesc" class="form-control" rows="2"
+                                placeholder="Key ingredients, benefits, texture..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="prodJasminNote">Jasmin's Personal Verdict / Tip</label>
+                            <input type="text" id="prodJasminNote" class="form-control"
+                                placeholder="e.g. 'Saved my skin texture in 2 weeks! Smells dreamy.'">
+                        </div>
+
+                        <!-- Image URL & Quick Presets -->
+                        <div class="form-group">
+                            <label class="form-label" for="prodImage">Image URL</label>
+                            <input type="url" id="prodImage" class="form-control"
+                                placeholder="https://images.unsplash.com/..." required>
+                            <div class="image-presets">
+                                <span style="font-size:11px; font-weight:700; color:var(--text-muted);">Quick
+                                    Presets:</span>
+                                <span class="preset-pill" onclick="setPresetImage('serum')">🧪 Serum</span>
+                                <span class="preset-pill" onclick="setPresetImage('cream')">🧴 Glow Cream</span>
+                                <span class="preset-pill" onclick="setPresetImage('lipstick')">💄 Velvet Lip</span>
+                                <span class="preset-pill" onclick="setPresetImage('perfume')">🌸 Luxury Perfume</span>
+                                <span class="preset-pill" onclick="setPresetImage('toner')">✨ Glow Toner</span>
+                                <span class="preset-pill" onclick="setPresetImage('sunscreen')">☀️ Matte SPF</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit-product" id="submitBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                <polyline points="7 3 7 8 15 8"></polyline>
+                            </svg>
+                            Save to Catalog
+                        </button>
+                        <button type="button" class="btn-action-icon" id="cancelEditBtn"
+                            style="width:100%; border-radius:var(--radius-pill); margin-top:8px; display:none; height:38px; font-size:13px; font-weight:600;"
+                            onclick="cancelEdit()">
+                            Cancel Editing
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Inventory List & Management -->
+                <div class="glass-card admin-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 class="admin-section-title" style="margin-bottom:0;">Live Inventory</h2>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <button class="tag-chip" onclick="resetToSampleData()" title="Restore default curated items"
+                                style="font-size:11px;">
+                                🔄 Restore Defaults
+                            </button>
+                            <button class="tag-chip" id="signOutButton" onclick="signOutAdmin()" title="Sign out"
+                                style="font-size:11px;">
+                                Sign out
+                            </button>
+                        </div>
+                    </div>
+                    <p id="adminIdentity" class="admin-section-subtitle"></p>
+                    <p class="admin-section-subtitle">
+                        Manage your listings. Delete sold pre-loved items or update discount prices anytime.
+                    </p>
+
+                    <div class="admin-inventory-list" id="adminInventoryList">
+                        <!-- Dynamically populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- IPHONE FLOATING GLASS BOTTOM DOCK -->
+    <nav class="ios-dock-wrapper">
+        <div class="ios-dock">
+            <button class="dock-item active" id="dock-btn-shop" onclick="switchMainTab('shop')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span>Shop</span>
+            </button>
+
+            <button class="dock-item" id="dock-btn-routine" onclick="switchMainTab('routine')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+                <span>Routines</span>
+            </button>
+
+            <a href="https://instagram.com/arzuu_jasmin" target="_blank" rel="noopener" class="dock-item"
+                style="text-decoration:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+            </a>
+
+            <button class="dock-item" id="dock-btn-admin" onclick="switchMainTab('admin')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+                <span>Admin</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="modal-overlay" id="adminLoginOverlay" role="dialog" aria-modal="true"
+        aria-labelledby="adminLoginTitle">
+        <div class="modal-content">
+            <h2 id="adminLoginTitle" class="admin-section-title">Admin sign in</h2>
+            <p class="admin-section-subtitle">Sign in with the authorized Supabase account to manage the vault.</p>
+            <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="adminEmail">Email</label>
+                    <input class="form-control" id="adminEmail" type="email" autocomplete="username"
+                        value="acpsahid2005@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="adminPassword">Password</label>
+                    <input class="form-control" id="adminPassword" type="password" autocomplete="current-password"
+                        required>
+                </div>
+                <p id="adminLoginError" class="auth-error" role="alert"></p>
+                <button class="btn-submit-product" id="adminLoginSubmit" type="submit">Sign in</button>
+                <button class="tag-chip" type="button" onclick="closeAdminLogin()"
+                    style="width:100%; justify-content:center; margin-top:10px;">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLLER & STORAGE ENGINE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        /* ----------------------------------------------------
+           INITIAL CURATED SEED DATA
+        ---------------------------------------------------- */
+        const INITIAL_PRODUCTS = [
+            {
+                id: "p1",
+                title: "Niacinamide 10% + Zinc 1% Oil Control Serum",
+                brand: "The Ordinary",
+                category: "Skincare",
+                skinType: "Oily",
+                type: "affiliate", // brand new affiliate
+                condition: "Brand New Sealed",
+                origPrice: 700,
+                salePrice: 599,
+                affLink: "https://www.amazon.in/dp/B0779Y6FF5?tag=jasminbeauty-21",
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+                desc: "High-strength vitamin and mineral blemish formula that reduces the appearance of skin blemishes and signs of congestion.",
+                jasminNote: "My holy grail for shrinking pores without drying out! Must have for humid weather."
+            },
+            {
+                id: "p2",
+                title: "Soft Pinch Liquid Blush (Shade: Joy)",
+                brand: "Rare Beauty",
+                category: "Makeup",
+                skinType: "All",
+                type: "secondhand", // PR pre-loved
+                condition: "Brand New in PR Gift Box (Unopened)",
+                origPrice: 2400,
+                salePrice: 1350,
+                affLink: "",
+                image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80",
+                desc: "Weightless, long-lasting liquid blush that blends and builds beautifully for a soft, healthy flush. One dot lasts all day.",
+                jasminNote: "Received as a backup in my PR box! Completely brand new & untouched in the box."
+            },
+            {
+                id: "p3",
+                title: "Advanced Snail 96 Mucin Power Essence",
+                brand: "COSRX",
+                category: "Skincare",
+                skinType: "Dry",
+                type: "affiliate",
+                condition: "Brand New Sealed",
+                origPrice: 1450,
+                salePrice: 999,
+                affLink: "https://www.amazon.in/dp/B00PBX3L7K?tag=jasminbeauty-21",
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+                desc: "Formulated with 96.3% Snail Secretion Filtrate, this essence repairs and rejuvenates dry skin from deep within.",
+                jasminNote: "Glass-skin in a bottle! Apply while skin is damp for that viral glazed donut look."
+            },
+            {
+                id: "p4",
+                title: "Lip Sleeping Mask (Berry Flavoured)",
+                brand: "Laneige",
+                category: "Skincare",
+                skinType: "All",
+                type: "secondhand",
+                condition: "Swatched 1x with sanitized spatula (98% Left)",
+                origPrice: 1300,
+                salePrice: 650,
+                affLink: "",
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80",
+                desc: "A leave-on lip mask that delivers intense moisture and antioxidants while you sleep with Berry Fruit Complex.",
+                jasminNote: "Used once for swatch test video on camera. Cleaned and disinfected. 50% OFF!"
+            },
+            {
+                id: "p5",
+                title: "Magic Cream Moisturizer with Hyaluronic Acid",
+                brand: "Charlotte Tilbury",
+                category: "Skincare",
+                skinType: "Dry",
+                type: "secondhand",
+                condition: "Unboxed PR Sample (Never Used)",
+                origPrice: 5800,
+                salePrice: 2900,
+                affLink: "",
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+                desc: "Award-winning, immediate skin-reviving moisturizer that re-texturizes, smooths, and plumps the look of tired skin.",
+                jasminNote: "Got 2 jars in the brand gifting hamper. Offering this luxury jar at half price!"
+            },
+            {
+                id: "p6",
+                title: "Pillow Talk Matte Revolution Lipstick",
+                brand: "Charlotte Tilbury",
+                category: "Makeup",
+                skinType: "All",
+                type: "affiliate",
+                condition: "Brand New Genuine",
+                origPrice: 3150,
+                salePrice: 2750,
+                affLink: "https://www.nykaa.com/charlotte-tilbury-matte-revolution/p/927429",
+                image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80",
+                desc: "The universally-flattering nude-pink shade that creates fuller, wider-looking lips with cashmere-soft finish.",
+                jasminNote: "The ultimate bridal and everyday nude. Buy with my affiliate link for free sample pouch!"
+            }
+        ];
+
+        /* ----------------------------------------------------
+           SKIN TYPE ROUTINE GUIDE DATA
+        ---------------------------------------------------- */
+        const SKIN_ROUTINES = {
+            "Oily": {
+                title: "Oily & Acne-Prone Barrier Care",
+                badge: "Lightweight & Balancing",
+                summary: "Focus on sebum regulation and pore-refining hydration without clogging pores. Never skip moisturizer; dehydrated oily skin overproduces oil!",
+                am: [
+                    "Gentle Salicylic or Tea Tree Gel Cleanser",
+                    "Alcohol-free Niacinamide or BHA Exfoliating Toner",
+                    "Oil-Free Hydrating Serum (Hyaluronic Acid / Zinc)",
+                    "Ultra-light Gel-Cream / Water Cream Moisturizer",
+                    "Ultra-Matte Dry-Touch SPF 50+"
+                ],
+                pm: [
+                    "Micellar Water or Centella Cleansing Oil",
+                    "Foaming Amino Acid Purifying Cleanser",
+                    "Targeted Treatment (Niacinamide 10% or Retinol 0.2%)",
+                    "Barrier Repair Centella Cica Gel"
+                ]
+            },
+            "Dry": {
+                title: "Dry & Dehydrated Barrier Nourishment",
+                badge: "Intense Moisture & Glow",
+                summary: "Your barrier lacks natural lipids. Focus on ceramides, squalane, rich buttery creams, and layered hydration to lock moisture in.",
+                am: [
+                    "Non-stripping Milky / Hydrating Cream Cleanser",
+                    "Milky Essence or Fermented Ceramide Toner (Layer 2x)",
+                    "Snail Mucin 96 or Pure Hyaluronic Acid Serum on damp skin",
+                    "Rich Peptide Barrier Cream",
+                    "Dewy Hydrating Sunscreen (Broad Spectrum SPF 50)"
+                ],
+                pm: [
+                    "Balm to Oil Cleanser (Melt all SPF & Makeup)",
+                    "Gentle Hydrating Cleanser",
+                    "Squalane or Peptide Repair Serum",
+                    "Deep Recovery Ceramide Sleep Mask or Charlotte's Magic Cream"
+                ]
+            },
+            "Combination": {
+                title: "Combination Skin Balancing Protocol",
+                badge: "Dual-Action Harmony",
+                summary: "Balance the oily T-zone (forehead, nose, chin) while keeping the cheeks hydrated and supple without irritation.",
+                am: [
+                    "Low-pH Mild Gel Cleanser",
+                    "Green Tea or Witch-Hazel Balancing Toner",
+                    "Lightweight Multi-Hyaluronic Essence",
+                    "Lotion-texture Moisture Emulsion",
+                    "Fluid Sunscreen with Natural Satin Finish"
+                ],
+                pm: [
+                    "Gentle Oil Cleanser",
+                    "pH Balancing Foam Cleanser",
+                    "BHA / Salicylic Acid exclusively on T-Zone 3x/week",
+                    "Medium weight Ceramide Emulsion all over"
+                ]
+            },
+            "Sensitive": {
+                title: "Sensitive & Reactive Barrier Soothing",
+                badge: "Fragrance-Free & Calming",
+                summary: "Keep steps minimal. Zero synthetic fragrance or essential oils. Emphasize Centella Asiatica, Panthenol, and Mugwort.",
+                am: [
+                    "Rinse with lukewarm water or calming Oat Cleanser",
+                    "Centella Asiatica / Heartleaf Soothing Toner",
+                    "Panthenol B5 Barrier Repair Serum",
+                    "Hypoallergenic Barrier Balm or Oat Moisturizer",
+                    "100% Mineral Zinc Oxide Sunscreen"
+                ],
+                pm: [
+                    "Ultra-mild Micellar Cleanser",
+                    "Creamy Gentle Cleanser",
+                    "Cica / Madecassoside Calming Ampoule",
+                    "Lipid Replenishing Night Cream"
+                ]
+            },
+            "Acne-Prone": {
+                title: "Acne & Texture Clearing Protocol",
+                badge: "Anti-Bacterial & Gentle",
+                summary: "Calm active inflammation, unclog follicles, and prevent post-acne dark marks (PIH) without stripping the acid mantle.",
+                am: [
+                    "Foaming Cleanser with 2% Salicylic Acid",
+                    "Niacinamide 5% Clarifying Toner",
+                    "Azelaic Acid or Centella Serum",
+                    "Oil-Free Non-Comedogenic Gel Moisturizer",
+                    "Non-Greasy Physical or Fluid Sunscreen"
+                ],
+                pm: [
+                    "Jojoba Oil or Gentle Cleansing Milk",
+                    "Foaming Purifying Cleanser",
+                    "Gentle Retinoid or Adapalene (alternate nights)",
+                    "Calming Ceramide Gel Cream"
+                ]
+            }
+        };
+
+        /* ----------------------------------------------------
+           IMAGE PRESETS FOR EASY ADMIN CREATION
+        ---------------------------------------------------- */
+        const PRESET_IMAGES = {
+            serum: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+            cream: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+            lipstick: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80",
+            perfume: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80",
+            toner: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+            sunscreen: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80"
+        };
+
+        /* ----------------------------------------------------
+           SUPABASE AUTH & CATALOG STORAGE
+        ---------------------------------------------------- */
+        const SUPABASE_URL = "https://tgskvrcvsdpoygaooclf.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_wQS7Y7y0NLnEJvjgniR-Ug_-dpd6SkS";
+        const ADMIN_EMAIL = "acpsahid2005@gmail.com";
+        const CATALOG_CACHE_KEY = "jasmin_products_v2";
+        const supabaseClient = window.supabase
+            ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+            : null;
+
+        let products = [];
+        let currentUser = null;
+        let currentFilter = {
+            search: "",
+            source: "all",
+            category: "all",
+            skin: "all"
+        };
+
+        function loadCachedProducts() {
+            const saved = localStorage.getItem(CATALOG_CACHE_KEY);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    if (Array.isArray(parsed)) return parsed;
+                } catch (e) {
+                    console.error("Unable to read the cached product catalog.", e);
+                }
+            }
+            return [...INITIAL_PRODUCTS];
+        }
+
+        function isAdmin() {
+            return currentUser?.email?.toLowerCase() === ADMIN_EMAIL;
+        }
+
+        async function loadRemoteProducts() {
+            if (!supabaseClient) throw new Error("Supabase client failed to load.");
+            const { data, error } = await supabaseClient
+                .from("beauty_products")
+                .select("product")
+                .order("sort_order", { ascending: true });
+            if (error) throw error;
+            products = data.length ? data.map(row => row.product) : [...INITIAL_PRODUCTS];
+            localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify(products));
+        }
+
+        function renderCatalog() {
+            updateStats();
+            renderProducts();
+            renderAdminInventory();
+        }
+
+        async function saveStorage({ deletedIds = [], clearRemote = false } = {}) {
+            if (!supabaseClient || !isAdmin()) {
+                throw new Error("An authorized admin session is required to save catalog changes.");
+            }
+            if (products.length) {
+                const rows = products.map((product, index) => ({
+                    id: product.id,
+                    product,
+                    sort_order: index
+                }));
+                const { error } = await supabaseClient
+                    .from("beauty_products")
+                    .upsert(rows, { onConflict: "id" });
+                if (error) throw error;
+            }
+
+            if (clearRemote) {
+                const { data, error } = await supabaseClient
+                    .from("beauty_products")
+                    .select("id");
+                if (error) throw error;
+                const staleIds = data
+                    .map(row => row.id)
+                    .filter(id => !products.some(product => product.id === id));
+                if (staleIds.length) {
+                    const { error: deleteError } = await supabaseClient
+                        .from("beauty_products")
+                        .delete()
+                        .in("id", staleIds);
+                    if (deleteError) throw deleteError;
+                }
+            } else if (deletedIds.length) {
+                const { error } = await supabaseClient
+                    .from("beauty_products")
+                    .delete()
+                    .in("id", deletedIds);
+                if (error) throw error;
+            }
+
+            localStorage.setItem(CATALOG_CACHE_KEY, JSON.stringify(products));
+            renderCatalog();
+        }
+
+        async function refreshCatalog() {
+            try {
+                await loadRemoteProducts();
+            } catch (error) {
+                console.error("Unable to load the shared catalog from Supabase.", error);
+                products = loadCachedProducts();
+                showToast("Could not reach the shared catalog; showing cached/sample products.");
+            }
+            renderCatalog();
+        }
+
+        async function resetToSampleData() {
+            if (!isAdmin()) {
+                showToast("Sign in as the authorized admin before editing the catalog.");
+                return;
+            }
+            if (confirm("Reset the catalog back to Jasmin's original curated sample products?")) {
+                const previousProducts = products.map(product => ({ ...product }));
+                products = [...INITIAL_PRODUCTS];
+                try {
+                    await saveStorage({ clearRemote: true });
+                    showToast("Catalog reset to curated defaults ✨");
+                } catch (error) {
+                    console.error("Unable to reset the shared catalog.", error);
+                    products = previousProducts;
+                    renderCatalog();
+                    showToast("Could not reset catalog. Check Supabase setup and try again.");
+                }
+            }
+        }
+
+        async function handleAdminLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById("adminEmail").value.trim().toLowerCase();
+            const password = document.getElementById("adminPassword").value;
+            const errorElement = document.getElementById("adminLoginError");
+            const submitButton = document.getElementById("adminLoginSubmit");
+            errorElement.textContent = "";
+
+            if (email !== ADMIN_EMAIL) {
+                errorElement.textContent = "This account is not authorized for Admin Studio.";
+                return;
+            }
+            if (!supabaseClient) {
+                errorElement.textContent = "Supabase did not load. Check your connection and reload.";
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Signing in…";
+            try {
+                const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+                if (error) throw error;
+                if (data.user?.email?.toLowerCase() !== ADMIN_EMAIL) {
+                    await supabaseClient.auth.signOut();
+                    throw new Error("This account is not authorized for Admin Studio.");
+                }
+                currentUser = data.user;
+                document.getElementById("adminPassword").value = "";
+                document.getElementById("adminIdentity").textContent = `Signed in as ${currentUser.email}`;
+                closeAdminLogin();
+                await refreshCatalog();
+                switchMainTab("admin");
+            } catch (error) {
+                console.error("Admin sign-in failed.", error);
+                errorElement.textContent = error.message || "Sign-in failed. Check your credentials and Supabase Auth setup.";
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "Sign in";
+            }
+        }
+
+        function closeAdminLogin() {
+            document.getElementById("adminLoginOverlay").style.display = "none";
+            document.getElementById("adminLoginError").textContent = "";
+            document.getElementById("adminPassword").value = "";
+        }
+
+        async function signOutAdmin() {
+            if (supabaseClient) {
+                const { error } = await supabaseClient.auth.signOut();
+                if (error) {
+                    console.error("Admin sign-out failed.", error);
+                    showToast("Could not sign out. Please try again.");
+                    return;
+                }
+            }
+            currentUser = null;
+            document.getElementById("adminIdentity").textContent = "";
+            switchMainTab("shop");
+            showToast("Signed out of Admin Studio.");
+        }
+
+        /* ----------------------------------------------------
+           TAB NAVIGATION
+        ---------------------------------------------------- */
+        function switchMainTab(tabName) {
+            if (tabName === "admin" && !isAdmin()) {
+                document.getElementById("adminLoginOverlay").style.display = "flex";
+                document.getElementById("adminEmail").focus();
+                return;
+            }
+
+            document.querySelectorAll(".segment-btn").forEach(b => b.classList.remove("active"));
+            document.querySelectorAll(".dock-item").forEach(b => b.classList.remove("active"));
+
+            document.getElementById("section-shop").style.display = "none";
+            document.getElementById("section-routine").style.display = "none";
+            document.getElementById("section-admin").style.display = "none";
+
+            if (tabName === "shop") {
+                document.getElementById("section-shop").style.display = "block";
+                document.getElementById("tab-btn-shop").classList.add("active");
+                document.getElementById("dock-btn-shop").classList.add("active");
+            } else if (tabName === "routine") {
+                document.getElementById("section-routine").style.display = "block";
+                document.getElementById("tab-btn-routine").classList.add("active");
+                document.getElementById("dock-btn-routine").classList.add("active");
+            } else if (tabName === "admin") {
+                document.getElementById("section-admin").style.display = "block";
+                document.getElementById("tab-btn-admin").classList.add("active");
+                document.getElementById("dock-btn-admin").classList.add("active");
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ----------------------------------------------------
+           FILTERING SYSTEM
+        ---------------------------------------------------- */
+        function setChipFilter(chipElement) {
+            const parentRow = chipElement.parentElement;
+            parentRow.querySelectorAll(".tag-chip").forEach(c => c.classList.remove("active"));
+            chipElement.classList.add("active");
+
+            const type = chipElement.dataset.filterType;
+            const val = chipElement.dataset.val;
+            currentFilter[type] = val;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchVal = document.getElementById("searchInput").value.trim().toLowerCase();
+            currentFilter.search = searchVal;
+
+            const filtered = products.filter(p => {
+                // Search matching
+                const matchSearch = !currentFilter.search ||
+                    p.title.toLowerCase().includes(currentFilter.search) ||
+                    p.brand.toLowerCase().includes(currentFilter.search) ||
+                    p.desc.toLowerCase().includes(currentFilter.search) ||
+                    (p.condition && p.condition.toLowerCase().includes(currentFilter.search));
+
+                // Source matching (secondhand vs affiliate)
+                const matchSource = currentFilter.source === "all" || p.type === currentFilter.source;
+
+                // Category matching
+                const matchCategory = currentFilter.category === "all" || p.category.toLowerCase() === currentFilter.category.toLowerCase();
+
+                // Skin Type matching
+                const matchSkin = currentFilter.skin === "all" || p.skinType === "All" || p.skinType.toLowerCase() === currentFilter.skin.toLowerCase();
+
+                return matchSearch && matchSource && matchCategory && matchSkin;
+            });
+
+            renderProducts(filtered);
+        }
+
+        /* ----------------------------------------------------
+           RENDER STOREFRONT PRODUCTS
+        ---------------------------------------------------- */
+        function renderProducts(itemsToRender = null) {
+            const grid = document.getElementById("productsGrid");
+            const list = itemsToRender !== null ? itemsToRender : products;
+
+            if (!list || list.length === 0) {
+                grid.innerHTML = `
+          <div class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <h3 style="font-size:18px; margin-bottom:6px; color:var(--text-main);">No products found</h3>
+            <p style="font-size:13px;">Try clearing filters or search terms to see all of Jasmin's listings.</p>
+          </div>
+        `;
+                return;
+            }
+
+            grid.innerHTML = list.map(item => {
+                const discountPct = Math.round(((item.origPrice - item.salePrice) / item.origPrice) * 100);
+                const isSecondHand = item.type === "secondhand";
+
+                // ACTION BUTTON LOGIC:
+                // If Second-hand / Brand PR gift: redirect to Instagram DM @arzuu_jasmin
+                // If Genuine brand new: redirect to Jasmin's affiliate link
+                const buyButtonHtml = isSecondHand ? `
+          <a href="https://ig.me/m/arzuu_jasmin?text=Hi%20Jasmin!%20I%20want%20to%20buy%20your%20PR%20item:%20${encodeURIComponent(item.title)}%20(₹${item.salePrice})" 
+             target="_blank" rel="noopener" class="btn-buy-action btn-insta-buy" onclick="handleBuyClick(event, '${item.id}', true)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            Claim via DM (@arzuu_jasmin)
+          </a>
+        ` : `
+          <a href="${item.affLink || 'https://amazon.in'}" target="_blank" rel="noopener" class="btn-buy-action btn-affiliate-buy" onclick="handleBuyClick(event, '${item.id}', false)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            Buy Genuine (Affiliate Deal)
+          </a>
+        `;
+
+                return `
+          <article class="product-card">
+            <div class="product-thumb-container">
+              <img src="${item.image}" alt="${item.title}" class="product-img" loading="lazy" onerror="this.src='${PRESET_IMAGES.cream}'">
+              
+              <!-- Badges float -->
+              <div class="product-badge-float">
+                ${isSecondHand
+                        ? `<span class="badge badge-pr">🎁 PR Pre-Loved</span>`
+                        : `<span class="badge badge-new">✨ Brand New</span>`}
+                ${discountPct > 0 ? `<span class="badge badge-discount">-${discountPct}% OFF</span>` : ''}
+              </div>
+
+              <!-- Skin Type float -->
+              <span class="skin-tag-float">${item.skinType === 'All' ? 'For All Skin' : 'For ' + item.skinType}</span>
+            </div>
+
+            <div class="product-body">
+              <span class="product-brand">${item.brand} • ${item.category}</span>
+              <h3 class="product-title">${item.title}</h3>
+              
+              <p class="product-desc">${item.desc}</p>
+
+              ${isSecondHand && item.condition ? `
+                <div style="font-size:11.5px; font-weight:600; color:#b45309; background:#fef3c7; padding:4px 8px; border-radius:6px; margin-bottom:10px; display:inline-flex; align-items:center; gap:4px;">
+                  <span>🔍 Condition:</span> ${item.condition}
+                </div>
+              ` : ''}
+
+              ${item.jasminNote ? `
+                <div class="jasmin-note-pill">
+                  <span>Jasmin:</span> "${item.jasminNote}"
+                </div>
+              ` : ''}
+
+              <div class="price-row">
+                <span class="sale-price">₹${item.salePrice}</span>
+                ${item.origPrice > item.salePrice ? `<span class="orig-price">₹${item.origPrice}</span>` : ''}
+                <span class="savings-badge">Save ₹${item.origPrice - item.salePrice}</span>
+              </div>
+
+              ${buyButtonHtml}
+            </div>
+          </article>
+        `;
+            }).join('');
+        }
+
+        function handleBuyClick(event, productId, isSecondHand) {
+            if (isSecondHand) {
+                showToast("Opening Instagram DM with Jasmin (@arzuu_jasmin) 💌");
+            } else {
+                showToast("Opening Jasmin's verified affiliate link 🛍️");
+            }
+        }
+
+        /* ----------------------------------------------------
+           SKIN TYPE SELECTION & ROUTINE RENDERER
+        ---------------------------------------------------- */
+        function selectSkinType(type) {
+            document.querySelectorAll(".skin-chip").forEach(c => {
+                c.classList.toggle("active", c.textContent.includes(type));
+            });
+
+            const routine = SKIN_ROUTINES[type] || SKIN_ROUTINES["Oily"];
+            const container = document.getElementById("routineContent");
+
+            container.innerHTML = `
+        <div class="routine-header">
+          <div>
+            <h3 style="font-size:18px; font-weight:700; color:var(--text-main); margin-bottom:2px;">${routine.title}</h3>
+            <p style="font-size:12.5px; color:var(--text-muted);">${routine.summary}</p>
+          </div>
+          <span class="routine-badge">${routine.badge}</span>
+        </div>
+
+        <div class="routine-steps-grid">
+          <div class="routine-col">
+            <div class="routine-col-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              Morning Ritual (AM)
+            </div>
+            <ul class="routine-list">
+              ${routine.am.map((step, idx) => `<li><strong>Step ${idx + 1}:</strong>${step}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="routine-col">
+            <div class="routine-col-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              Night Repair Ritual (PM)
+            </div>
+            <ul class="routine-list">
+              ${routine.pm.map((step, idx) => `<li><strong>Step ${idx + 1}:</strong>${step}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <button class="filter-match-btn" onclick="filterByMatchedSkin('${type}')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+          Filter Jasmin’s Vault For ${type} Skin Products
+        </button>
+      `;
+        }
+
+        function filterByMatchedSkin(skinType) {
+            switchMainTab('shop');
+            // Highlight skin chip in storefront
+            const skinChip = document.querySelector(`.tag-chip[data-filter-type="skin"][data-val="${skinType}"]`);
+            if (skinChip) {
+                setChipFilter(skinChip);
+            } else {
+                currentFilter.skin = skinType;
+                applyFilters();
+            }
+            showToast(`Showing Jasmin's recommended picks for ${skinType} Skin ✨`);
+        }
+
+        /* ----------------------------------------------------
+           ADMIN FORM & CRUD OPERATIONS
+        ---------------------------------------------------- */
+        function toggleAdminLinkField() {
+            const type = document.querySelector('input[name="productType"]:checked').value;
+            const affGroup = document.getElementById("affiliateLinkGroup");
+            const condGroup = document.getElementById("conditionFieldGroup");
+
+            if (type === "affiliate") {
+                affGroup.style.display = "block";
+                condGroup.style.display = "none";
+            } else {
+                affGroup.style.display = "none";
+                condGroup.style.display = "block";
+            }
+        }
+
+        function calculateDiscountPreview() {
+            const orig = parseFloat(document.getElementById("prodOrigPrice").value) || 0;
+            const sale = parseFloat(document.getElementById("prodSalePrice").value) || 0;
+            const preview = document.getElementById("discountPreviewNotice");
+
+            if (orig > 0 && sale > 0 && orig >= sale) {
+                const pct = Math.round(((orig - sale) / orig) * 100);
+                const saved = orig - sale;
+                preview.style.display = "block";
+                preview.textContent = `⚡ Followers save ₹${saved} (${pct}% OFF MRP)`;
+            } else {
+                preview.style.display = "none";
+            }
+        }
+
+        function setPresetImage(key) {
+            if (PRESET_IMAGES[key]) {
+                document.getElementById("prodImage").value = PRESET_IMAGES[key];
+                showToast(`Preset image selected: ${key}`);
+            }
+        }
+
+        async function handleProductSubmit(e) {
+            e.preventDefault();
+            if (!isAdmin()) {
+                showToast("Sign in as the authorized admin before editing the catalog.");
+                return;
+            }
+            const previousProducts = products.map(product => ({ ...product }));
+            const editId = document.getElementById("editProductId").value;
+            const type = document.querySelector('input[name="productType"]:checked').value;
+            const title = document.getElementById("prodTitle").value.trim();
+            const brand = document.getElementById("prodBrand").value.trim();
+            const category = document.getElementById("prodCategory").value;
+            const skinType = document.getElementById("prodSkinType").value;
+            const condition = document.getElementById("prodCondition").value.trim();
+            const origPrice = parseFloat(document.getElementById("prodOrigPrice").value) || 0;
+            const salePrice = parseFloat(document.getElementById("prodSalePrice").value) || 0;
+            const affLink = document.getElementById("prodAffLink").value.trim();
+            const desc = document.getElementById("prodDesc").value.trim();
+            const jasminNote = document.getElementById("prodJasminNote").value.trim();
+            const image = document.getElementById("prodImage").value.trim() || PRESET_IMAGES.cream;
+
+            if (editId) {
+                // Update existing item
+                const index = products.findIndex(p => p.id === editId);
+                if (index !== -1) {
+                    products[index] = {
+                        ...products[index],
+                        type, title, brand, category, skinType, condition, origPrice, salePrice, affLink, desc, jasminNote, image
+                    };
+                }
+            } else {
+                // Create new item
+                const newProd = {
+                    id: "p_" + Date.now(),
+                    type, title, brand, category, skinType, condition, origPrice, salePrice, affLink, desc, jasminNote, image
+                };
+                products.unshift(newProd);
+            }
+
+            try {
+                await saveStorage();
+                cancelEdit();
+                showToast(editId ? `Updated "${title}" successfully!` : `Added "${title}" to your vault ✨`);
+            } catch (error) {
+                console.error("Unable to save the product to Supabase.", error);
+                products = previousProducts;
+                renderCatalog();
+                showToast("Could not save product. Check your connection and database permissions.");
+            }
+        }
+
+        function editProduct(id) {
+            const item = products.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById("editProductId").value = item.id;
+            document.getElementById("form-heading").textContent = "Edit Product: " + item.title;
+            document.getElementById("prodTitle").value = item.title;
+            document.getElementById("prodBrand").value = item.brand;
+            document.getElementById("prodCategory").value = item.category;
+            document.getElementById("prodSkinType").value = item.skinType;
+            document.getElementById("prodCondition").value = item.condition || "";
+            document.getElementById("prodOrigPrice").value = item.origPrice;
+            document.getElementById("prodSalePrice").value = item.salePrice;
+            document.getElementById("prodAffLink").value = item.affLink || "";
+            document.getElementById("prodDesc").value = item.desc || "";
+            document.getElementById("prodJasminNote").value = item.jasminNote || "";
+            document.getElementById("prodImage").value = item.image;
+
+            const radios = document.querySelectorAll('input[name="productType"]');
+            radios.forEach(r => {
+                r.checked = (r.value === item.type);
+            });
+            toggleAdminLinkField();
+            calculateDiscountPreview();
+
+            document.getElementById("submitBtn").innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        Update Product
+      `;
+            document.getElementById("cancelEditBtn").style.display = "flex";
+
+            // Scroll to form
+            document.getElementById("productForm").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function cancelEdit() {
+            document.getElementById("editProductId").value = "";
+            document.getElementById("form-heading").textContent = "Upload New Product";
+            document.getElementById("productForm").reset();
+            document.getElementById("discountPreviewNotice").style.display = "none";
+            document.getElementById("submitBtn").innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        Save to Catalog
+      `;
+            document.getElementById("cancelEditBtn").style.display = "none";
+            toggleAdminLinkField();
+        }
+
+        async function deleteProduct(id) {
+            const item = products.find(p => p.id === id);
+            if (!item || !isAdmin()) return;
+
+            if (confirm(`Are you sure you want to delete "${item.title}" from your vault?`)) {
+                const previousProducts = products;
+                products = products.filter(p => p.id !== id);
+                try {
+                    await saveStorage({ deletedIds: [id] });
+                    showToast("Product deleted from vault");
+                } catch (error) {
+                    console.error("Unable to delete the product from Supabase.", error);
+                    products = previousProducts;
+                    renderCatalog();
+                    showToast("Could not delete product. Check your connection and database permissions.");
+                }
+            }
+        }
+
+        function renderAdminInventory() {
+            const container = document.getElementById("adminInventoryList");
+            if (!products || products.length === 0) {
+                container.innerHTML = `<div style="text-align:center; padding:20px; color:var(--text-muted);">No products in vault. Add one on the left!</div>`;
+                return;
+            }
+
+            container.innerHTML = products.map(item => `
+        <div class="admin-item-row">
+          <img src="${item.image}" alt="" class="admin-item-thumb" onerror="this.src='${PRESET_IMAGES.cream}'">
+          <div class="admin-item-info">
+            <div class="admin-item-title">${item.title}</div>
+            <div class="admin-item-meta">
+              <span style="font-weight:700; color:var(--accent-rose);">₹${item.salePrice}</span>
+              <span>•</span>
+              <span>${item.type === 'secondhand' ? '📦 Pre-Loved' : '🛒 Affiliate'}</span>
+              <span>•</span>
+              <span>${item.skinType}</span>
+            </div>
+          </div>
+          <div class="admin-item-actions">
+            <button class="btn-action-icon" title="Edit" onclick="editProduct('${item.id}')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            </button>
+            <button class="btn-action-icon btn-delete" title="Delete" onclick="deleteProduct('${item.id}')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        /* ----------------------------------------------------
+           HERO STATS UPDATE
+        ---------------------------------------------------- */
+        function updateStats() {
+            document.getElementById("stat-total-items").textContent = products.length;
+            const prCount = products.filter(p => p.type === 'secondhand').length;
+            document.getElementById("stat-pr-items").textContent = prCount;
+
+            let maxDisc = 0;
+            products.forEach(p => {
+                if (p.origPrice > p.salePrice) {
+                    const disc = Math.round(((p.origPrice - p.salePrice) / p.origPrice) * 100);
+                    if (disc > maxDisc) maxDisc = disc;
+                }
+            });
+            document.getElementById("stat-max-discount").textContent = `${maxDisc}%`;
+        }
+
+        /* ----------------------------------------------------
+           TOAST ALERTS
+        ---------------------------------------------------- */
+        function showToast(msg) {
+            const container = document.getElementById("toastContainer");
+            const toast = document.createElement("div");
+            toast.className = "toast";
+            toast.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>${msg}</span>
+      `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        /* ----------------------------------------------------
+           BOOTSTRAP INITIALIZATION
+        ---------------------------------------------------- */
+        window.addEventListener("DOMContentLoaded", async () => {
+            if (!supabaseClient) {
+                products = loadCachedProducts();
+                renderCatalog();
+                showToast("Supabase could not load. Admin sign-in and shared edits are unavailable.");
+                selectSkinType('Oily');
+                return;
+            }
+
+            const { data, error } = await supabaseClient.auth.getSession();
+            if (error) {
+                console.error("Unable to restore the Supabase session.", error);
+                showToast("Could not check the Admin session. Please reload and try again.");
+            } else {
+                currentUser = data.session?.user || null;
+                if (currentUser && currentUser.email?.toLowerCase() !== ADMIN_EMAIL) {
+                    const { error: signOutError } = await supabaseClient.auth.signOut();
+                    if (signOutError) console.error("Unable to clear an unauthorized session.", signOutError);
+                    currentUser = null;
+                }
+                if (isAdmin()) {
+                    document.getElementById("adminIdentity").textContent = `Signed in as ${currentUser.email}`;
+                }
+            }
+
+            await refreshCatalog();
+            supabaseClient.auth.onAuthStateChange((event, session) => {
+                currentUser = session?.user?.email?.toLowerCase() === ADMIN_EMAIL
+                    ? session.user
+                    : null;
+                if (event === "SIGNED_OUT") {
+                    document.getElementById("adminIdentity").textContent = "";
+                    if (document.getElementById("section-admin").style.display === "block") {
+                        switchMainTab("shop");
+                    }
+                }
+            });
+            selectSkinType('Oily');
+        });
+    </script>
+</body>
+
+</html>
